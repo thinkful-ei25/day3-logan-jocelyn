@@ -35,3 +35,14 @@ const hobbitDiet = {
 };
 
 console.log(hobbitDiet.meals[3]);
+
+//arrays of objects
+
+const wizard = {name:'Gandalf', jobTitle:'White wizard'};
+const teacher = {name:'John', jobTitle:'Dean'};
+const animal = {name:'Yogi', jobTitle:'Bear'};
+const people = [wizard, teacher, animal];
+
+people.forEach(person =>{
+  console.log(`name: ${person.name}: ${person.jobTitle}`);
+});
