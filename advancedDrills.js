@@ -217,9 +217,6 @@ function validateKeys(object, expectedKeys) {
   return false;
 }
 
-console.log(validateKeys(objectA, expectedKeys));
-console.log(validateKeys(objectB, expectedKeys));
-
 /* From here down, you are not expected to 
    understand.... for now :)  
    
