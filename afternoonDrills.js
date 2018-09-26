@@ -26,3 +26,12 @@ const foobar = {
 for (let property in foobar){
   console.log(`${property}: ${foobar[property]}`);
 }
+
+//arrays in objects
+
+const hobbitDiet = {
+  meals:['breakfast', 'second breakfast', 'elevenses',
+    'lunch', 'afternoon tea', 'dinner', 'supper']
+};
+
+console.log(hobbitDiet.meals[3]);
