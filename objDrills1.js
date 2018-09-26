@@ -124,53 +124,104 @@ function updateObject(obj) {
 // Modify personMaker.fullName to be a function that uses self-reference (via this) in order to return the firstName and lastName properties separated by a space.
 
 // So, for instance, if firstName was 'Jane' and lastName was 'Doe', fullName() should return 'Jane Doe'.
-function personMaker() {
-    var person = {
-      firstName: 'Paul',
-      lastName: 'Jones',
-      // replace `null` with a function that uses self reference to return
-      // full name
-      fullName: function(){
-          return `${this.firstName} ${this.lastName}`; 
-    },
-   }; return person;
+// function personMaker() {
+//     var person = {
+//       firstName: 'Paul',
+//       lastName: 'Jones',
+//       // replace `null` with a function that uses self reference to return
+//       // full name
+//       fullName: function(){
+//           return `${this.firstName} ${this.lastName}`; 
+//     },
+//    }; return person;
+//   }
+  
+//   /* From here down, you are not expected to 
+//      understand.... for now :)  
+     
+     
+//      Nothing to see here!
+     
+//   */
+  
+//   (function testPersonMaker() {
+//     var person = personMaker();
+//     if (typeof person !== 'object') {
+//       console.error('ERROR: `personMaker` must return an object');
+//       return false;
+//     }
+//     if (typeof person.fullName !== 'function') {
+//       console.error('ERROR: `fullName` must be a method');
+//       return false;
+//     }
+//     if (person.fullName() !== 'Paul Jones') {
+//       console.error(
+//         'ERROR: The value for `fullName` should be "Paul Jones" but was ' +
+//           person.fullName()
+//       );
+//       return false;
+//     }
+//     person.firstName = 'Lisa';
+//     person.lastName = 'Simpson';
+//     if (person.fullName() !== 'Lisa Simpson') {
+//       console.error(
+//         '`personMaker` is not using self reference correctly. ' +
+//           'When firstName set to "Lisa" and lastName set to "Simpson", ' +
+//           'should return "Lisa Simpson" but returned ' +
+//           person.fullName()
+//       );
+//     }
+//     console.log('SUCCESS: `updateObject` works correctly!');
+//   })();
+
+//Delete keys
+//Modify the keyDeleter function so that it deletes keys for foo and bar for any object passed in and 
+//then returns the modified object.
+const sampleObj = {
+  foo: 'foo',
+  bar: 'bar',
+  bizz: 'bizz',
+  bang: 'bang',
+};
+
+function keyDeleter(obj) {
+  // your code here
+  delete obj.foo;
+  delete obj.bar;
+  return obj;
+}
+
+/* From here down, you are not expected to 
+   understand.... for now :)  
+   
+   
+   Nothing to see here!
+   
+*/
+
+(function testKeyDeleter() {
+  var obj = keyDeleter({
+    foo: 'foo',
+    bar: 'bar',
+    bizz: 'bizz',
+    bang: 'bang',
+  });
+
+  if (typeof obj !== 'object') {
+    console.error('ERROR: `keyDeleter` must be return an object');
+    return false;
   }
-  
-  /* From here down, you are not expected to 
-     understand.... for now :)  
-     
-     
-     Nothing to see here!
-     
-  */
-  
-  (function testPersonMaker() {
-    var person = personMaker();
-    if (typeof person !== 'object') {
-      console.error('ERROR: `personMaker` must return an object');
+  ['foo', 'bar'].forEach(function(key) {
+    if (key in obj) {
+      console.error('`keyDeleter` did not delete the key for ' + key);
       return false;
     }
-    if (typeof person.fullName !== 'function') {
-      console.error('ERROR: `fullName` must be a method');
+  });
+  ['bizz', 'bang'].forEach(function(key) {
+    if (!(key in obj && obj[key] === key)) {
+      console.error('`keyDeleter` is deleting keys other than `foo` and `bar`');
       return false;
     }
-    if (person.fullName() !== 'Paul Jones') {
-      console.error(
-        'ERROR: The value for `fullName` should be "Paul Jones" but was ' +
-          person.fullName()
-      );
-      return false;
-    }
-    person.firstName = 'Lisa';
-    person.lastName = 'Simpson';
-    if (person.fullName() !== 'Lisa Simpson') {
-      console.error(
-        '`personMaker` is not using self reference correctly. ' +
-          'When firstName set to "Lisa" and lastName set to "Simpson", ' +
-          'should return "Lisa Simpson" but returned ' +
-          person.fullName()
-      );
-    }
-    console.log('SUCCESS: `updateObject` works correctly!');
-  })();
-  
+  });
+  console.log('SUCCESS: `keyDeleter` works correctly!');
+})();
