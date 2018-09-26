@@ -225,83 +225,87 @@ function validateKeys(object, expectedKeys) {
    
 */
 
-function testIt() {
-  const objectA = {
-    id: 2,
-    name: 'Jane Doe',
-    age: 34,
-    city: 'Chicago',
-  };
+// function testIt() {
+//   const objectA = {
+//     id: 2,
+//     name: 'Jane Doe',
+//     age: 34,
+//     city: 'Chicago',
+//   };
 
-  const objectB = {
-    id: 3,
-    age: 33,
-    city: 'Peoria',
-  };
+//   const objectB = {
+//     id: 3,
+//     age: 33,
+//     city: 'Peoria',
+//   };
 
-  const objectC = {
-    id: 9,
-    name: 'Billy Bear',
-    age: 62,
-    city: 'Milwaukee',
-    status: 'paused',
-  };
+//   const objectC = {
+//     id: 9,
+//     name: 'Billy Bear',
+//     age: 62,
+//     city: 'Milwaukee',
+//     status: 'paused',
+//   };
 
-  const objectD = {
-    foo: 2,
-    bar: 'Jane Doe',
-    bizz: 34,
-    bang: 'Chicago',
-  };
+//   const objectD = {
+//     foo: 2,
+//     bar: 'Jane Doe',
+//     bizz: 34,
+//     bang: 'Chicago',
+//   };
 
-  const expectedKeys = ['id', 'name', 'age', 'city'];
+//   const expectedKeys = ['id', 'name', 'age', 'city'];
 
-  if (typeof validateKeys(objectA, expectedKeys) !== 'boolean') {
-    console.error('FAILURE: validateKeys should return a boolean value');
-    return;
-  }
+//   if (typeof validateKeys(objectA, expectedKeys) !== 'boolean') {
+//     console.error('FAILURE: validateKeys should return a boolean value');
+//     return;
+//   }
 
-  if (!validateKeys(objectA, expectedKeys)) {
-    console.error(
-      `FAILURE: running validateKeys with the following object and keys
-      should return true but returned false:
-      Object: ${JSON.stringify(objectA)}
-      Expected keys: ${expectedKeys}`
-    );
-    return;
-  }
+//   if (!validateKeys(objectA, expectedKeys)) {
+//     console.error(
+//       `FAILURE: running validateKeys with the following object and keys
+//       should return true but returned false:
+//       Object: ${JSON.stringify(objectA)}
+//       Expected keys: ${expectedKeys}`
+//     );
+//     return;
+//   }
 
-  if (validateKeys(objectB, expectedKeys)) {
-    console.error(
-      `FAILURE: running validateKeys with the following object and keys
-      should return false but returned true:
-      Object: ${JSON.stringify(objectB)}
-      Expected keys: ${expectedKeys}`
-    );
-    return;
-  }
+//   if (validateKeys(objectB, expectedKeys)) {
+//     console.error(
+//       `FAILURE: running validateKeys with the following object and keys
+//       should return false but returned true:
+//       Object: ${JSON.stringify(objectB)}
+//       Expected keys: ${expectedKeys}`
+//     );
+//     return;
+//   }
 
-  if (validateKeys(objectC, expectedKeys)) {
-    console.error(
-      `FAILURE: running validateKeys with the following object and keys
-      should return false but returned true:
-      Object: ${JSON.stringify(objectC)}
-      Expected keys: ${expectedKeys}`
-    );
-    return;
-  }
+//   if (validateKeys(objectC, expectedKeys)) {
+//     console.error(
+//       `FAILURE: running validateKeys with the following object and keys
+//       should return false but returned true:
+//       Object: ${JSON.stringify(objectC)}
+//       Expected keys: ${expectedKeys}`
+//     );
+//     return;
+//   }
 
-  if (validateKeys(objectD, expectedKeys)) {
-    console.error(
-      `FAILURE: running validateKeys with the following object and keys
-      should return false but returned true:
-      Object: ${JSON.stringify(objectD)}
-      Expected keys: ${expectedKeys}`
-    );
-    return;
-  }
+//   if (validateKeys(objectD, expectedKeys)) {
+//     console.error(
+//       `FAILURE: running validateKeys with the following object and keys
+//       should return false but returned true:
+//       Object: ${JSON.stringify(objectD)}
+//       Expected keys: ${expectedKeys}`
+//     );
+//     return;
+//   }
 
-  console.log('SUCCESS: validateKeys is working');
-}
+//   console.log('SUCCESS: validateKeys is working');
+// }
 
-testIt();
+// testIt();
+
+
+
+
