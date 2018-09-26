@@ -46,3 +46,21 @@ const people = [wizard, teacher, animal];
 people.forEach(person =>{
   console.log(`name: ${person.name}: ${person.jobTitle}`);
 });
+
+
+//properties that aren't there (?)
+
+wizard.boss = 'someguy';
+teacher.boss = 'someguy';
+
+people.forEach(person => {
+  if (!person.boss){
+    console.log(`${person.jobTitle} ${person.name}
+     doesn't report to anybody`);
+  }else 
+    console.log(`${person.jobTitle} ${person.name}
+    reports to ${person.boss}.`);
+});
+
+
+
