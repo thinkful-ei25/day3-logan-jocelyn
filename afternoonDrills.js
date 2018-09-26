@@ -63,27 +63,32 @@ people.forEach(person => {
 });
 
 //cracking the code
-const message = 'craft block argon meter bells brown croon droop';
-const cipher = {
-  a: 2,
-  b: 3,
-  c: 4,
-  d: 5,
-};
+let message = 'craft block argon meter bells brown croon droop';
 
-function decode(word){
-  if (cipher[word[0]]){
-    return word[cipher[word[0]]];
-  } else {
+
+
+function decode (someWord){
+  const cipher = {
+    a: 2,
+    b: 3,
+    c: 4,
+    d: 5,
+  };
+  const initial = someWord[0];
+  if (initial in cipher){
+    const index = cipher[initial];
+    return someWord[index-1];
+  } else 
     return ' ';
-  }
-}
-function decodeWords(message){
-  let words = message.split(' ');
-  words.forEach(word => decode(word));
-  return words.join;
 }
 
-console.log(decodeWords(message));
+function decodeWords(string){
+  let divided = string.split(' ');
+ 
+  const results = divided.map(word => 
+    decode(word)
+  ); const final = results.join('');
+  return final;
+} 
 
-
+// console.log(decodeWords(message));
