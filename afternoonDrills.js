@@ -62,5 +62,28 @@ people.forEach(person => {
     reports to ${person.boss}.`);
 });
 
+//cracking the code
+const message = 'craft block argon meter bells brown croon droop';
+const cipher = {
+  a: 2,
+  b: 3,
+  c: 4,
+  d: 5,
+};
+
+function decode(word){
+  if (cipher[word[0]]){
+    return word[cipher[word[0]]];
+  } else {
+    return ' ';
+  }
+}
+function decodeWords(message){
+  let words = message.split(' ');
+  words.forEach(word => decode(word));
+  return words.join;
+}
+
+console.log(decodeWords(message));
 
 
