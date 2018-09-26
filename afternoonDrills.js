@@ -91,50 +91,86 @@
 
 // // console.log(decodeWords(message));
 // //Factory Functions with LOTR
-function createCharacter(name, nickname, race, origin, attack, defense, weapon){
-  return{
-    name,
-    nickname,
-    race,
-    origin,
-    attack,
-    defense,
-    weapon,
-    describe: function(){
-      return `${this.name} is a ${this.race} from ${this.origin} who uses ${this.weapon}`;  
-    },
-    evaluateFight: function(opponent){
-      let damageDealt;
-      if (this.attack > opponent.defense){
-        damageDealt = this.attack - opponent.defense;
-      } else {
-        damageDealt = 0;
-      }
-      let damageRec;
-      if (opponent.attack > this.defense){
-        damageRec = opponent.attack - this.defense;
-      } else {
-        damageRec = 0;
-      }
-      let fightMessage = `Your opponent takes ${damageDealt} damage and you receive ${damageRec} damage`;
-      return fightMessage;
-    }
-  };
-}
+// function createCharacter(name, nickname, race, origin, attack, defense, weapon){
+//   return{
+//     name,
+//     nickname,
+//     race,
+//     origin,
+//     attack,
+//     defense,
+//     weapon,
+//     describe: function(){
+//       return `${this.name} is a ${this.race} from ${this.origin} who uses ${this.weapon}`;  
+//     },
+//     evaluateFight: function(opponent){
+//       let damageDealt;
+//       if (this.attack > opponent.defense){
+//         damageDealt = this.attack - opponent.defense;
+//       } else {
+//         damageDealt = 0;
+//       }
+//       let damageRec;
+//       if (opponent.attack > this.defense){
+//         damageRec = opponent.attack - this.defense;
+//       } else {
+//         damageRec = 0;
+//       }
+//       let fightMessage = `Your opponent takes ${damageDealt} damage and you receive ${damageRec} damage`;
+//       return fightMessage;
+//     }
+//   };
+// }
 
-const characters = [
-  createCharacter('Gandalf the White','gandalf','Wizard','Middle Earth',10,6,'wizard staff'),
-  createCharacter('Bilbo Baggins','bilbo','Hobbit','The Shire',2,1,'the Ring'),
-  createCharacter('Frodo Baggins','frodo','Hobbit','The Shire',3,2,'String and Barrow Blade'),
-  createCharacter('Aragorn son of Arathorn','aragorn','Man','Dunnedain',6,8,'Anduril'),
-  createCharacter('Legolas','legolas','Elf','Woodland Realm',8,5,'Bow and Arrow')
+// const characters = [
+//   createCharacter('Gandalf the White','gandalf','Wizard','Middle Earth',10,6,'wizard staff'),
+//   createCharacter('Bilbo Baggins','bilbo','Hobbit','The Shire',2,1,'the Ring'),
+//   createCharacter('Frodo Baggins','frodo','Hobbit','The Shire',3,2,'String and Barrow Blade'),
+//   createCharacter('Aragorn son of Arathorn','aragorn','Man','Dunnedain',6,8,'Anduril'),
+//   createCharacter('Legolas','legolas','Elf','Woodland Realm',8,5,'Bow and Arrow')
+// ];
+
+// characters.push(createCharacter('Arwen Undomiel','arwen','Half-Elf','Rivendell',5,5,'Hadhafang'));
+// console.log(characters.find(character => character.nickname === 'aragorn').describe());
+
+// const hobbits = characters.filter(character => character.race === 'Hobbit');
+// console.log(hobbits);
+
+// const attackOver5 = characters.filter(character => character.attack > 5);
+// console.log(attackOver5);
+
+//Database Search 
+
+const HEROES = [
+  { id: 1, name: 'Captain America', squad: 'Avengers' },
+  { id: 2, name: 'Iron Man', squad: 'Avengers' },
+  { id: 3, name: 'Spiderman', squad: 'Avengers' },
+  { id: 4, name: 'Superman', squad: 'Justice League' },
+  { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+  { id: 6, name: 'Aquaman', squad: 'Justice League' },
+  { id: 7, name: 'Hulk', squad: 'Avengers' },
 ];
 
-characters.push(createCharacter('Arwen Undomiel','arwen','Half-Elf','Rivendell',5,5,'Hadhafang'));
-console.log(characters.find(character => character.nickname === 'aragorn').describe());
+function findOne (arr, query){
+  for (const hero of arr){
+    let match = true; 
+    
+      for(const key in query){
 
-const hobbits = characters.filter(character => character.race === 'Hobbit');
-console.log(hobbits);
+        if (query[key] !== hero[key]){
+          match = false; 
+          break;
+        }
+      } 
+      
+      if(!match) {
+        continue;
+    }
+     return hero; 
+  }
+    return null; 
 
-const attackOver5 = characters.filter(character => character.attack > 5);
-console.log(attackOver5);
+}
+
+console.log(findOne(HEROES,  { id: 1, name: 'Captain America', squad: 'Avengers' },
+));
